@@ -128,6 +128,10 @@ function App() {
           <div className='app__information'>
             <h3>Live Cases by Country</h3>
             <Table countries={tableData} />
+          </div>
+        </CardContent>
+        <CardContent>
+          <div className='app__chart'>
             <h3>Worldwide new {casesType}</h3>
             <LineGraph casesType={casesType} />
           </div>
