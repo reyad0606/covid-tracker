@@ -20,8 +20,8 @@ function App() {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCenter, setMapCenter] = useState({ lat: 24.80746, lng: 30.4796 });
+  const [mapZoom, setMapZoom] = useState(2.4);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState('cases');
 
@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     const getCountriesData = async () => {
-      await fetch('https://disease.sh/v3/covid-19/countries')
+      fetch('https://disease.sh/v3/covid-19/countries')
         .then((response) => response.json())
         .then((data) => {
           const countries = data.map((country) => ({
@@ -56,7 +56,6 @@ function App() {
 
   const onCountryChange = async (e) => {
     const countryCode = e.target.value;
-    setCountry(countryCode);
 
     const url =
       countryCode === 'worldwide'
